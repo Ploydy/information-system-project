@@ -23,8 +23,8 @@ export default function Home() {
         <Image
           src={BgImage}
           alt="Background Image"
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{objectFit:"cover"}}
         />
       </div>
 
