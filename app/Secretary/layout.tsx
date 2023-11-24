@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "../(components)/Nav";
+import SecretaryNav from "../(components)/SecretaryNav";
 
 export default function Layout({ children, ...props }: any) {
   return (
     <>
-    <Navbar/>
+    <SecretaryNav />
       <main {...props}>{children}</main>
     </>
   );

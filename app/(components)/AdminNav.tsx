@@ -44,7 +44,9 @@ const AdminNav = () => {
             className="sm:hidden"
           />
           <NavbarBrand>
+          <Link href="/Admin">
             <p className="font-bold text-inherit">UniPrime</p>
+            </Link>
           </NavbarBrand>
         </NavbarContent>
 
@@ -62,6 +64,16 @@ const AdminNav = () => {
           <NavbarItem>
             <Link color="foreground" href="/Admin/Users">
             Users
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="/Admin/Email">
+            Email
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="/Admin/Feedback">
+            Feedback
             </Link>
           </NavbarItem>
         </NavbarContent>

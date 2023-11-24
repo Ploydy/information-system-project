@@ -14,7 +14,7 @@ import {
   NavbarMenuToggle,
 } from "@nextui-org/react";
 
-const EmployeeNav = () => {
+const SecretaryNav = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
@@ -43,32 +43,28 @@ const EmployeeNav = () => {
             className="sm:hidden"
           />
           <NavbarBrand >
-            <Link href="/Employee">
+            <Link href="/Secretary">
             <p className="font-bold text-inherit">UniPrime</p>
             </Link>
           </NavbarBrand>
         </NavbarContent>
 
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
-          
           <NavbarItem>
-            <Link color="foreground" href="/Employee/Email">
+            <Link color="foreground" href="/Secretary/Email">
             Email
             </Link>
           </NavbarItem>
-
           <NavbarItem>
-            <Link color="foreground" href="/Employee/Feedback" >
+            <Link color="foreground" href="/Secretary/Feedback" >
             Feedback
             </Link>
           </NavbarItem>
-
           <NavbarItem>
             <Link color="foreground" href="#">
             Product
             </Link>
           </NavbarItem>
-
         </NavbarContent>
         <NavbarContent justify="end">
           <NavbarItem>
@@ -102,5 +98,5 @@ const EmployeeNav = () => {
   );
 };
 
-export default EmployeeNav;
+export default SecretaryNav;
 
