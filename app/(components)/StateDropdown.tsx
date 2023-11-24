@@ -26,9 +26,10 @@ const StateDropdown = () => {
           selectedKeys={selectedKeys}
           onSelectionChange={setSelectedKeys}
         >
-          <DropdownItem key="Employee">Employee</DropdownItem>
-          <DropdownItem key="Admin">Admin</DropdownItem>
-          <DropdownItem key="Secretary">Secretary</DropdownItem>
+          <DropdownItem key="employee">Employee</DropdownItem>
+          <DropdownItem value="admin">Admin</DropdownItem>
+          <DropdownItem value="secretary">Secretary</DropdownItem>
+          <DropdownItem value="user">User</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     </div>

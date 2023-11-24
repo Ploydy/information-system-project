@@ -14,7 +14,7 @@ import {
   NavbarMenuToggle,
 } from "@nextui-org/react";
 
-const NavBar = () => {
+const AdminNav = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
@@ -32,6 +32,7 @@ const NavBar = () => {
 
   const router = useRouter();
   const handleLogout = () => {
+    console.log(`Logout`)
     router.push("/");
   };
   return (
@@ -49,18 +50,18 @@ const NavBar = () => {
 
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
           <NavbarItem>
-            <Link color="foreground" href="#">
-            Product
+            <Link color="foreground" href="/Admin/Overview">
+            Overview
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#" >
-            Product
+            <Link color="foreground" href="/Admin" >
+            Dashboard
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#">
-            Product
+            <Link color="foreground" href="/Admin/Users">
+            Users
             </Link>
           </NavbarItem>
         </NavbarContent>
@@ -96,5 +97,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
-
+export default AdminNav;

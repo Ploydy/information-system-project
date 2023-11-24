@@ -1,15 +1,44 @@
+"use client";
+import { useRouter } from 'next/navigation'
 import Image from "next/image";
-import BgImage from "./(images)/wallhaven-qzdqvr.jpg";
+import BgImage from "./(images)/logo.jpg";
+import { Button, Card, CardBody, Checkbox, Input } from "@nextui-org/react";
 import {
-  Button,
-  Card,
-  CardBody,
-  Checkbox,
-  Input,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
 } from "@nextui-org/react";
-import StateDropdown from "./(components)/StateDropdown";
+import { useMemo, useState } from "react";
 
 export default function Home() {
+
+  const router = useRouter()
+  const [selectedKeys, setSelectedKeys] = useState(new Set(["State"]));
+
+  const selectedValue = useMemo(
+    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
+    [selectedKeys]
+  );
+  const handleLogin = () => {
+    console.log(`login ${selectedValue}`);
+    if (selectedValue === 'admin') {
+      router.push('/Admin')
+    }
+    if (selectedValue === 'employee') {
+      router.push('/Employee')
+    }
+    if (selectedValue === 'secretary') {
+      router.push('/Secretary')
+    }
+    if (selectedValue === 'user') {
+      router.push('/User')
+    } 
+    if (selectedValue === 'State'){
+      alert('incorrect Credentails Please choose one on state below! ')
+    }
+    
+  };
   return (
     <div>
       <div
@@ -24,13 +53,16 @@ export default function Home() {
           src={BgImage}
           alt="Background Image"
           fill
-          style={{objectFit:"cover"}}
+          style={{ objectFit: "cover" }}
         />
       </div>
 
       <div className="px-4 py-40 mx-auto sm:px-6 lg:px-8 max-w-7x1">
         <div className="max-w-lg mx-auto text-center">
-          <Card className="pt-4 pb-4 px-8 bg-transparent" style={{ border: "solid"}} >
+          <Card
+            className="pt-4 pb-4 px-8 bg-transparent"
+            style={{ border: "solid" }}
+          >
             <h1 className="text-tiny uppercase font-bold">Login</h1>
             <CardBody>
               <Input
@@ -48,9 +80,30 @@ export default function Home() {
               />
               <Checkbox className="py-4">Remember me</Checkbox>
               <div className="mx-0 my-2">
-              <StateDropdown />
+                <div>
+                  <Dropdown>
+                    <DropdownTrigger>
+                      <Button variant="bordered" className="capitalize">
+                        {selectedValue}
+                      </Button>
+                    </DropdownTrigger>
+                    <DropdownMenu
+                      aria-label="Single selection example"
+                      variant="flat"
+                      disallowEmptySelection
+                      selectionMode="single"
+                      selectedKeys={selectedKeys}
+                      onSelectionChange={setSelectedKeys}
+                    >
+                      <DropdownItem key="admin">Admin</DropdownItem>
+                      <DropdownItem key="employee">Employee</DropdownItem>
+                      <DropdownItem key="secretary">Secretary</DropdownItem>
+                      <DropdownItem key="user">User</DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
+                </div>
               </div>
-              <Button>Sign In</Button>
+              <Button onClick={handleLogin}>Login</Button>
             </CardBody>
           </Card>
         </div>
@@ -58,3 +111,4 @@ export default function Home() {
     </div>
   );
 }
+
