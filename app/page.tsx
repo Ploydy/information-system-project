@@ -1,7 +1,7 @@
 "use client";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-import BgImage from "./(images)/logo.jpg";
+import BgImage from "./(images)/logo2.png";
 import { Button, Card, CardBody, Checkbox, Input } from "@nextui-org/react";
 import {
   Dropdown,
@@ -10,10 +10,10 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import { useMemo, useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
-
-  const router = useRouter()
+  const router = useRouter();
   const [selectedKeys, setSelectedKeys] = useState(new Set(["State"]));
 
   const selectedValue = useMemo(
@@ -22,22 +22,21 @@ export default function Home() {
   );
   const handleLogin = () => {
     console.log(`login ${selectedValue}`);
-    if (selectedValue === 'admin') {
-      router.push('/Admin')
+    if (selectedValue === "admin") {
+      router.push("/Admin");
     }
-    if (selectedValue === 'employee') {
-      router.push('/Employee')
+    if (selectedValue === "employee") {
+      router.push("/Employee");
     }
-    if (selectedValue === 'secretary') {
-      router.push('/Secretary')
+    if (selectedValue === "secretary") {
+      router.push("/Secretary");
     }
-    if (selectedValue === 'user') {
-      router.push('/User')
-    } 
-    if (selectedValue === 'State'){
-      alert('incorrect Credentails Please choose one on state below! ')
+    if (selectedValue === "customer") {
+      router.push("/customer");
     }
-    
+    if (selectedValue === "State") {
+      alert("incorrect Credentails Please choose one on state below! ");
+    }
   };
   return (
     <div>
@@ -98,9 +97,14 @@ export default function Home() {
                       <DropdownItem key="admin">Admin</DropdownItem>
                       <DropdownItem key="employee">Employee</DropdownItem>
                       <DropdownItem key="secretary">Secretary</DropdownItem>
-                      <DropdownItem key="user">User</DropdownItem>
+                      <DropdownItem key="customer">Customer</DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
+                </div>
+                <div className="my-2">
+                  <Link href="/Register">
+                    <Button>Create an account</Button>
+                  </Link>
                 </div>
               </div>
               <Button onClick={handleLogin}>Login</Button>
@@ -111,4 +115,3 @@ export default function Home() {
     </div>
   );
 }
-
