@@ -35,10 +35,10 @@ const Users = () => {
                 User
               </th>
               <th className="border w-1/5 px-1 py-2" scope="col">
-                email
+                Email
               </th>
-              <th className="border w-1/5 px-1 py-2" scope="col">
-                password
+              <th className="border w-1/5 px-1 py-2 " scope="col">
+                Password
               </th>
               <th className="border w-1/5 px-1 py-2" scope="col">
                 Actions
