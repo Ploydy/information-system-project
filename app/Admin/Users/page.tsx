@@ -22,9 +22,11 @@ const Users = () => {
         <div>
           <h3>User</h3>
         </div>
+        <Link href='/Admin/Users'>
         <Button className="btn my-4" onClick={handleAddUser}>
           Add user
         </Button>
+        </Link>
         <table>
           <thead>
             <tr>

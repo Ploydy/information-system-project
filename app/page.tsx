@@ -12,7 +12,7 @@ import {
 import { useMemo, useState } from "react";
 import Link from "next/link";
 
-export default function Home() {
+export default function Home(props: any) {
   const router = useRouter();
   const [selectedKeys, setSelectedKeys] = useState(new Set(["State"]));
 
@@ -94,6 +94,7 @@ export default function Home() {
                       selectionMode="single"
                       selectedKeys={selectedKeys}
                       onSelectionChange={setSelectedKeys}
+                      {...props}
                     >
                       <DropdownItem key="admin">Admin</DropdownItem>
                       <DropdownItem key="employee">Employee</DropdownItem>
